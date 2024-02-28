@@ -66,6 +66,11 @@ cmd -c "%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall"
 cmd -c "%SystemRoot%\System32\OneDriveSetup.exe /uninstall"
 ```
 
+### Upgrade powershell to be able run next scripts and restart it
+```powershell
+    winget upgrade powershell
+```
+
 ### Install all needed packages (chocolaty + winget)
 Chocolaty Packages: ~3GB+
 
