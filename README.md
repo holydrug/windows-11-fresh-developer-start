@@ -107,6 +107,7 @@ choco install `
     maven `
     intellijidea-ultimate `
     brave `
+    zoom `
     obsidian -y
 ```
 
