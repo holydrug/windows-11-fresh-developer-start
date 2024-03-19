@@ -115,7 +115,7 @@ Microsoft Store Programs:
 ```powershell
 winget install -e -i --id=9NKSQGP7F2NH --source=msstore
 winget install Microsoft.PowerToys --source winget
-winget install -e --id tomlm.electron-outlook-com
+winget install -i -e --id=9NRX63209R7B --source=msstore --accept-package-agreements
 ```
 
 Other Progrmas:
