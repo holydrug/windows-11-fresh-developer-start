@@ -100,7 +100,6 @@ choco install `
     telegram `
     bulk-crap-uninstaller `
     obs-studio `
-    steam `
     docker-engine `
     docker-desktop `
     adb `
@@ -116,4 +115,15 @@ Microsoft Store Programs:
 ```powershell
 winget install -e -i --id=9NKSQGP7F2NH --source=msstore
 ```
+
+Other Progrmas:
+(steam only)
+```powershell
+# Download Steam installer
+Invoke-WebRequest -Uri "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe" -OutFile "$env:TEMP\SteamSetup.exe"
+
+# Install Steam silently
+Start-Process -FilePath "$env:TEMP\SteamSetup.exe" -ArgumentList '/S' -Wait
+```
+
 
