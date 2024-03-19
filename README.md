@@ -107,8 +107,7 @@ choco install `
     gradle `
     maven `
     intellijidea-ultimate `
-    wsl-ubuntu-2204 `
-    playnite `
+    brave `
     obsidian -y
 ```
 
