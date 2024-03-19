@@ -111,10 +111,11 @@ choco install `
 ```
 
 Microsoft Store Programs:
-(whatsapp only + powertoys)
+(whatsapp only + powertoys, etc.)
 ```powershell
 winget install -e -i --id=9NKSQGP7F2NH --source=msstore
 winget install Microsoft.PowerToys --source winget
+winget install -e --id tomlm.electron-outlook-com
 ```
 
 Other Progrmas:
