@@ -113,8 +113,11 @@ choco install `
 Microsoft Store Programs:
 (whatsapp only + powertoys, etc.)
 ```powershell
+# WhatsApp
 winget install -e -i --id=9NKSQGP7F2NH --source=msstore
+# PowerToys
 winget install Microsoft.PowerToys --source winget
+# Outlook
 winget install -i -e --id=9NRX63209R7B --source=msstore --accept-package-agreements
 ```
 
