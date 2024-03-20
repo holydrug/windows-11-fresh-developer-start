@@ -100,7 +100,6 @@ choco install `
     telegram `
     bulk-crap-uninstaller `
     obs-studio `
-    docker-engine `
     docker-desktop `
     adb `
     gradle `
