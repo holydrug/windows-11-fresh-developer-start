@@ -11,7 +11,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 
 ### Install WSL (need to update Windows before):
 ```powershell
-wsl --update
+wsl --install -d Ubuntu
 ```
 
 ### Set Explorer Settings (PowerShell Admin):
