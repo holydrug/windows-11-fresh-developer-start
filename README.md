@@ -9,11 +9,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
-### Install WSL (need to update Windows before):
-```powershell
-wsl --install -d Ubuntu
-```
-
 ### Upgrade powershell to be able run next scripts and restart it
 ```powershell
 winget upgrade powershell
@@ -78,6 +73,10 @@ Invoke-WebRequest -Uri "https://cdn.cloudflare.steamstatic.com/client/installer/
 Start-Process -FilePath "$env:TEMP\SteamSetup.exe" -ArgumentList '/S' -Wait
 ```
 
+### Install WSL (need to update Windows before):
+```powershell
+wsl --install -d Ubuntu
+```
 
 ### Set Explorer Settings (PowerShell Admin):
 
