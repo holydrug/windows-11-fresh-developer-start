@@ -24,6 +24,7 @@ Chocolaty Packages: ~3GB+
 
 ```powershell
 choco install `
+    discord `
     qbittorrent `
     clavier-plus `
     temurin21 `
@@ -39,7 +40,6 @@ choco install `
     kubernetes-helm `
     kubernetes-cli `
     vim `
-    discord `
     multimc `
     postman `
     yt-dlp `
