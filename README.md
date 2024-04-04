@@ -16,7 +16,7 @@ wsl --install -d Ubuntu
 
 ### Upgrade powershell to be able run next scripts and restart it
 ```powershell
-    winget upgrade powershell
+winget upgrade powershell
 ```
 
 ### Install all needed packages (chocolaty + winget)
