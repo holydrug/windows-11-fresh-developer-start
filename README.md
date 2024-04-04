@@ -78,6 +78,9 @@ Start-Process -FilePath "$env:TEMP\SteamSetup.exe" -ArgumentList '/S' -Wait
 wsl --install -d Ubuntu
 ```
 
+### Activate Windows with KMS
+May be unsafe but 👉👉👉👉👉👉 [free-activate](https://github.com/massgravel/Microsoft-Activation-Scripts)
+
 ### Set Explorer Settings (PowerShell Admin):
 
 Deletes previous settings:
