@@ -14,58 +14,6 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 wsl --install -d Ubuntu
 ```
 
-### Set Explorer Settings (PowerShell Admin):
-
-Deletes previous settings:
-```powershell
-ri 'HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU' -Recurse
-ri 'HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags' -Recurse
-```
-
-Set list view:
-```powershell
-$FT = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes'
-gci $FT -Recurse | ? Property -Contains 'LogicalVIewMode' | %{
-    $_.Name -match 'FolderTypes\\(.+)\\TopViews' | out-null
-    $matches[1]
-} | select -unique | %{
-    New-Item "HKLM:\SOFTWARE\Microsoft\Windows\Shell\Bags\AllFolders\Shell\$_" -Force |
-    Set-ItemProperty -Name 'Mode' -Value 3 -PassThru |
-    Set-ItemProperty -Name 'LogicalViewMode' -Value 4
-}
-```
-
-Disable grouping folders:
-```powershell
-$RegExe = "$env:SystemRoot\System32\Reg.exe"
-$File = "$env:Temp\Temp.reg"
-$Key = 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}'
-& $RegExe Export $Key $File /y
-$Data = Get-Content $File
-$Data = $Data -Replace 'HKEY_LOCAL_MACHINE', 'HKEY_CURRENT_USER'
-$Data = $Data -Replace '"GroupBy"="System.DateModified"', '"GroupBy"=""'
-$Data | Out-File $File
-& $RegExe Import $File
-$Key = 'HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell'
-& $RegExe Delete "$Key\BagMRU" /f
-& $RegExe Delete "$Key\Bags" /f
-Stop-Process -Force -ErrorAction SilentlyContinue -ProcessName Explorer
-```
-
-Remove OneDrive via PowerShell:
-
-```powershell
-## Kill the OneDrive process
-taskkill /f /im OneDrive.exe
-
-# Uninstall OneDrive
-# For x64 system (I tested it on my machine)
-cmd -c "%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall"
-
-# For x86 machines
-cmd -c "%SystemRoot%\System32\OneDriveSetup.exe /uninstall"
-```
-
 ### Upgrade powershell to be able run next scripts and restart it
 ```powershell
     winget upgrade powershell
@@ -131,4 +79,56 @@ Invoke-WebRequest -Uri "https://cdn.cloudflare.steamstatic.com/client/installer/
 Start-Process -FilePath "$env:TEMP\SteamSetup.exe" -ArgumentList '/S' -Wait
 ```
 
+
+### Set Explorer Settings (PowerShell Admin):
+
+Deletes previous settings:
+```powershell
+ri 'HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU' -Recurse
+ri 'HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags' -Recurse
+```
+
+Set list view:
+```powershell
+$FT = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes'
+gci $FT -Recurse | ? Property -Contains 'LogicalVIewMode' | %{
+    $_.Name -match 'FolderTypes\\(.+)\\TopViews' | out-null
+    $matches[1]
+} | select -unique | %{
+    New-Item "HKLM:\SOFTWARE\Microsoft\Windows\Shell\Bags\AllFolders\Shell\$_" -Force |
+    Set-ItemProperty -Name 'Mode' -Value 3 -PassThru |
+    Set-ItemProperty -Name 'LogicalViewMode' -Value 4
+}
+```
+
+Disable grouping folders:
+```powershell
+$RegExe = "$env:SystemRoot\System32\Reg.exe"
+$File = "$env:Temp\Temp.reg"
+$Key = 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}'
+& $RegExe Export $Key $File /y
+$Data = Get-Content $File
+$Data = $Data -Replace 'HKEY_LOCAL_MACHINE', 'HKEY_CURRENT_USER'
+$Data = $Data -Replace '"GroupBy"="System.DateModified"', '"GroupBy"=""'
+$Data | Out-File $File
+& $RegExe Import $File
+$Key = 'HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell'
+& $RegExe Delete "$Key\BagMRU" /f
+& $RegExe Delete "$Key\Bags" /f
+Stop-Process -Force -ErrorAction SilentlyContinue -ProcessName Explorer
+```
+
+Remove OneDrive via PowerShell:
+
+```powershell
+## Kill the OneDrive process
+taskkill /f /im OneDrive.exe
+
+# Uninstall OneDrive
+# For x64 system (I tested it on my machine)
+cmd -c "%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall"
+
+# For x86 machines
+cmd -c "%SystemRoot%\System32\OneDriveSetup.exe /uninstall"
+```
 
