@@ -81,8 +81,8 @@ wsl --install -d Ubuntu
 
 ### Activate Windows with KMS
 May be unsafe but 👉👉👉👉👉👉 [free-activate](https://github.com/massgravel/Microsoft-Activation-Scripts)
-
 ~~ lol 70k stars pepeWait ~~ 
+
 ---
 
 ### Set Explorer Settings (PowerShell Admin):
