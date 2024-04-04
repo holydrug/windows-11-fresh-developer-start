@@ -26,7 +26,7 @@ Chocolaty Packages: ~3GB+
 choco install `
     qbittorrent `
     clavier-plus `
-    temurin17 `
+    temurin21 `
     nodejs `
     python `
     firefox `
@@ -35,7 +35,6 @@ choco install `
     vlc `
     winrar `
     curl `
-    k-litecodecpackfull `
     sumatrapdf `
     kubernetes-helm `
     kubernetes-cli `
@@ -55,7 +54,7 @@ choco install `
     intellijidea-ultimate `
     brave `
     zoom `
-    obsidian -y
+    obsidian -y --ignore-checksums
 ```
 
 Microsoft Store Programs:
