@@ -1,4 +1,4 @@
-Z## This guide provides a step-by-step approach to enhance your Windows environment 🚀🛠️🖥️🌐💻
+## This guide provides a step-by-step approach to enhance your Windows environment 🚀🛠️🖥️🌐💻
 
 
 ### Install Chocolatey:
