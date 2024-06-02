@@ -79,6 +79,12 @@ Start-Process -FilePath "$env:TEMP\SteamSetup.exe" -ArgumentList '/S' -Wait
 ```powershell
 wsl --install -d Ubuntu
 ```
+
+### Install OPENSSH-SERVER (need for ssh work):
+```powershell
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+```
+
 ---
 
 ### Activate Windows with KMS
