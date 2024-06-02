@@ -82,7 +82,18 @@ wsl --install -d Ubuntu
 
 ### Install OPENSSH-SERVER (need for ssh work):
 ```powershell
+# Install ssh-server need for agent
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+
+# Run server on startup
+Set-Service -Name ssh-agent -StartupType Automatic
+
+# Generate ssh keys
+ssh-add ~\.ssh\id_rsa
+
+# Add keys identity
+ssh-add .\.ssh\id_rsa
+
 ```
 
 ---
