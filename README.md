@@ -94,6 +94,9 @@ ssh-add ~\.ssh\id_rsa
 # Add keys identity
 ssh-add .\.ssh\id_rsa
 
+# Verify the Key Addition:
+ssh-add -l
+
 ```
 
 ---
