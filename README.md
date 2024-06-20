@@ -31,6 +31,7 @@ choco install `
     vlc `
     winrar `
     curl `
+    pgadmin4 `
     sumatrapdf `
     kubernetes-helm `
     kubernetes-cli `
